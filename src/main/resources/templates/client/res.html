@@ -48,12 +48,12 @@
         <p class="lead">Процент совпадения с оригиналом: <span class="font-weight-bold" th:text="${max}"></span>%</p>
     </div>
     <h1>Эталонное изображение: </h1>
-    <img th:src="@{'http://127.0.0.1:8081/' + ${id} + '.png'}" class="card-img-top" alt="Печать">
+    <img th:src="@{'http://127.0.0.1:8081/' + ${id} + '.png'}" class="card-img-top" alt="Печать"  width="350" height="350">
     <br>
     <br>
     <br>
     <h1>Загружаемое изображение: </h1>
-    <img th:src="@{'http://127.0.0.1:8081/' +  'test.png'}" class="card-img-top" alt="Печать">
+    <img th:src="@{'http://127.0.0.1:8081/' +  'test.png'}" class="card-img-top" alt="Печать"  width="350" height="350">
     <div class="text-center mt-3">
         <a href="/client/home" class="btn btn-primary">На главную</a>
     </div>
