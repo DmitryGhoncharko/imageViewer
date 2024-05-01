@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .card {
+            margin-bottom: 20px;
+        }
+
+        .gallery img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <a href="/admin/home">Главная</a>
+        <nav class="nav justify-content-center">
+            <a class="nav-link" href="/admin/addType">Добавить тип печати</a>
+            <a class="nav-link" href="/admin/typeList">Cписок типов печатей</a>
+            <a class="nav-link" href="/admin/addStamp">Добавить печати в базу по типу</a>
+            <a class="nav-link" href="/admin/viewStamp">Просмотр базы печатей</a>
+            <a class="nav-link" href="/logout">Выйти</a>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+    <h2 class="text-center mt-5 mb-3">Добро пожаловать</h2>
+    <div class="row">
+
+        <div th:each="stamp : ${stampList}" class="col-md-4">
+            <div class="card">
+                <img th:src="@{'http://127.0.0.1:8081/' + ${stamp.id} + '.png'}" class="card-img-top" alt="Печать">
+                <div class="card-body">
+                    <h5 class="card-title">Печать</h5>
+                    <a th:href="@{'/admin/delete/' + ${stamp.id}}" class="btn btn-danger">Удалить</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <p>Контактная информация:  +375447860021</p>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -30,6 +30,7 @@
             <a class="nav-link" href="/admin/addType">Добавить тип печати</a>
             <a class="nav-link" href="/admin/typeList">Cписок типов печатей</a>
             <a class="nav-link" href="/admin/addStamp">Добавить печати в базу по типу</a>
+            <a class="nav-link" href="/admin/viewStamp">Просмотр базы печатей</a>
             <a class="nav-link" href="/logout">Выйти</a>
         </nav>
     </div>
@@ -42,12 +43,14 @@
             <label for="image">Выберите изображение:</label>
             <input type="file" class="form-control-file" id="image" name="image" accept="image/*" required>
         </div>
+
         <div class="form-group">
             <label for="stampType">Выберите тип печати:</label>
             <select class="form-control" id="stampType" name="stampType" required>
                 <option value="">Выберите тип печати</option>
-                <option th:each="type : ${stampType}" th:value="${type.id}" th:text="${type.stampTypeName}"></option>
+                <option th:each="stampType : ${stampTypes}" th:value="${stampType.id}" th:text="${stampType.stampTypeName}">Type Name Here</option>
             </select>
+
         </div>
         <button type="submit" class="btn btn-primary">Загрузить изображение</button>
     </form>
