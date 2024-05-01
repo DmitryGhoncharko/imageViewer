@@ -49,12 +49,16 @@ public class Test {
         int matchCount = 0;
 
 
-        for (int x = 0; x < width; x++) {
-            for (int y = 0; y < height; y++) {
-                if (image1.getRGB(x, y) == image2.getRGB(x, y)) {
-                    matchCount++;
+        try{
+            for (int x = 0; x < width; x++) {
+                for (int y = 0; y < height; y++) {
+                    if (image1.getRGB(x, y) == image2.getRGB(x, y)) {
+                        matchCount++;
+                    }
                 }
             }
+        }catch (Throwable e){
+
         }
         return ((double) matchCount / (width * height)) * 100;
     }

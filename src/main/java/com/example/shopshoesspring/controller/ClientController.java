@@ -63,12 +63,15 @@ public class ClientController {
         List<Stamp> stamps = stampRepository.findByStampTypeId(id);
         double max = 0.0;
         String testFile = uploadPath +"test" + ".png";
+        long idIMG = 0;
         for(Stamp stamp : stamps) {
          Double res = Double.valueOf(test.check(testFile,uploadPath+stamp.getId() + ".png"));
             if(res > max) {
                 max = res;
+                idIMG = stamp.getId();
             }
         }
+        model.addAttribute("id", id);
         model.addAttribute("max", max);
         return "client/res";
     }
