@@ -71,7 +71,7 @@ public class ClientController {
                 idIMG = stamp.getId();
             }
         }
-        model.addAttribute("id", id);
+        model.addAttribute("id", idIMG);
         model.addAttribute("max", max);
         return "client/res";
     }
